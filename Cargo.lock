@@ -340,6 +340,8 @@ name = "graphql-rust"
 version = "0.1.0"
 dependencies = [
  "axum",
+ "http-body",
+ "hyper",
  "juniper",
  "serde",
  "serde_json",
