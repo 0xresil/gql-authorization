@@ -1,4 +1,4 @@
-use juniper::{EmptyMutation, FieldError, FieldResult, GraphQLObject, RootNode};
+use juniper::{EmptyMutation, EmptySubscription, FieldResult, GraphQLObject, RootNode};
 
 #[derive(GraphQLObject)]
 pub struct User {
@@ -18,8 +18,8 @@ impl QueryRoot {
     }
 }
 
-pub type Schema = RootNode<'static, QueryRoot, EmptyMutation<()>>;
+pub type Schema = RootNode<'static, QueryRoot, EmptyMutation<()>, EmptySubscription<()>>;
 
 pub fn create_schema() -> Schema {
-    Schema::new(QueryRoot {}, EmptyMutation::new())
+    Schema::new(QueryRoot {}, EmptyMutation::new(), EmptySubscription::new())
 }
